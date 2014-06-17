@@ -22,19 +22,21 @@ In your Dropwizard main class add following to the run() method:
         osiam.configure(environment);
 
 Your configuration class should have an OSIAM configuration:
+
     @JsonProperty
     private OsiamConfiguration osiam;
 
 Example OSIAM section of config.yaml
 
-osiam:
-  endpoint: http://localhost:8080
-  clientId: example-client
-  clientSecret: secret
-  clientRedirectUri: https://localhost:7443/api/osiam/oauth2
+ osiam:
+   endpoint: http://localhost:8080
+   clientId: example-client
+   clientSecret: secret
+   clientRedirectUri: https://localhost:7443/api/osiam/oauth2
 
 
 Your resource methods can now be protected like this:
+
  @Timed
  @UnitOfWork
  @POST
