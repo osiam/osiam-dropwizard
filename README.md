@@ -28,23 +28,23 @@ Your configuration class should have an OSIAM configuration:
 
 Example OSIAM section of config.yaml
 
- osiam:
-   endpoint: http://localhost:8080
-   clientId: example-client
-   clientSecret: secret
-   clientRedirectUri: https://localhost:7443/api/osiam/oauth2
+    osiam:
+        endpoint: http://localhost:8080
+        clientId: example-client
+        clientSecret: secret
+        clientRedirectUri: https://localhost:7443/api/osiam/oauth2
 
 
 Your resource methods can now be protected like this:
 
- @Timed
- @UnitOfWork
- @POST
- @Path("/all")
- public void saveConfig(@RestrictedTo({"admin"}) OsiamContext oc, VidioConfig config) {
+    @Timed
+    @UnitOfWork
+    @POST
+    @Path("/all")
+    public void saveConfig(@RestrictedTo({"admin"}) OsiamContext oc, VidioConfig config) {
         acd.save(config);
         LOGGER.debug("Saved config: " + config);
- }
+    }
 
 Only logged in users which are member of group "admin" can access the saveConfig method. If you require users just to be logged, annotate the OsiamContext parameter just with @RestrictedTo()
 
