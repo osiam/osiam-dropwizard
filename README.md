@@ -1,4 +1,4 @@
-osiam-dropwizard
+osiam-dropwizard [![Build Status](https://travis-ci.org/osiam/osiam-dropwizard.png?branch=master)](https://travis-ci.org/osiam/osiam-dropwizard)
 ================
 
 OSIAM Authentication module for Dropwizard
